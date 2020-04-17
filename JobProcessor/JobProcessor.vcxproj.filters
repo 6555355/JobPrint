@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="CRC.cpp" />
+    <ClCompile Include="ep6pipe.cpp" />
+    <ClCompile Include="Interface\NewSettingInterface.cpp" />
+    <ClCompile Include="JobProcessor.cpp" />
+    <ClCompile Include="Manager\RotateImage.cpp" />
+    <ClCompile Include="Manager\UserSetting.cpp" />
+    <ClCompile Include="PerformTest.cpp" />
+    <ClCompile Include="Port\FileOperater.cpp" />
+    <ClCompile Include="Pub\GlobalLayout.cpp" />
+    <ClCompile Include="Pub\HeadAttributet.cpp" />
+    <ClCompile Include="Pub\Ink Quantity.cpp" />
+    <ClCompile Include="Pub\UsbCommand.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Pub\Clean.cpp" />
+    <ClCompile Include="Pub\GlobalPrinterData.cpp" />
+    <ClCompile Include="Pub\JetCommand.cpp" />
+    <ClCompile Include="Pub\JetQueue.cpp" />
+    <ClCompile Include="Pub\MemDisk.cpp" />
+    <ClCompile Include="Pub\ParserLog.cpp" />
+    <ClCompile Include="Pub\ParserMessage.cpp" />
+    <ClCompile Include="Pub\PrintBand.cpp" />
+    <ClCompile Include="Pub\StatusCommand.cpp" />
+    <ClCompile Include="Pub\SystemInit.cpp" />
+    <ClCompile Include="Pub\Updater.cpp" />
+    <ClCompile Include="Manager\des.cpp" />
+    <ClCompile Include="Manager\PowerManager.cpp" />
+    <ClCompile Include="Manager\PrinterJob.cpp" />
+    <ClCompile Include="Manager\PrinterProperty.cpp" />
+    <ClCompile Include="Manager\PrinterPropertyMap.cpp" />
+    <ClCompile Include="Manager\PrinterStatus.cpp" />
+    <ClCompile Include="Manager\PrinterStatusTask.cpp" />
+    <ClCompile Include="Manager\SettingFile.cpp" />
+    <ClCompile Include="Manager\SettingManager.cpp" />
+    <ClCompile Include="Manager\StatusTaskA.cpp" />
+    <ClCompile Include="Manager\StatusTaskB.cpp" />
+    <ClCompile Include="Port\PrintJet.cpp" />
+    <ClCompile Include="Port\UsbPackage.cpp" />
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliBiDirectCheck.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CalibrationPatternBase.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliEngStep.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliHorizontal.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliLeftCheck.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliMechanicalCheckAngle.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliMechanicalCheckVertical.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliMechanicalCrossHead.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliMechanicalOverLap.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliNozzleCheck.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliVertical.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PublicLib\PublicFuntion.cpp" />
+    <ClCompile Include="..\PublicLib\EntrustFile.cpp" />
+    <ClCompile Include="Pub\LayoutCommand.cpp" />
+    <ClCompile Include="Pub\GlobalFeatureList.cpp" />
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliInkTester.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliMechanicalNozzleCheck.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\LayoutBuilder\XArrangeBuilder.cpp">
+      <Filter>LayoutBulider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\LayoutBuilder\YArrangeBuilder.cpp">
+      <Filter>LayoutBulider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\LayoutBuilder\LayoutBuilder.cpp">
+      <Filter>LayoutBulider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\LayoutBuilder\DataMapBuilder.cpp">
+      <Filter>LayoutBulider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliBetweenGroup.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Band\Calibration\CaliBetweenGroupOnePass.cpp">
+      <Filter>Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UsbPortLib\Basic\crandom.c">
+      <Filter>basic</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliBiDirectCheck.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CalibrationPatternBase.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliEngStep.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliHorizontal.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliLeftCheck.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliMechanicalCheckAngle.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliMechanicalCheckVertical.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliMechanicalCrossHead.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliMechanicalOverLap.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliNozzleCheck.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliPatternfactory.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliVertical.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CommonFunc.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\DataStruct.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\PrintColor.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface\PrinterDefine.h" />
+    <ClInclude Include="Interface\IInterface.h">
+      <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface\IInterfaceData.h">
+      <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Port\UsbPackagePub.h">
+      <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Port\UsbPackageStruct.h">
+      <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PublicLib\PublicFunction.h">
+      <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PublicLib\EntrustFile.h">
+      <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliInkTester.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliMechanicalNozzleCheck.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="LogAPI.h" />
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliBetweenGroup.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Band\Calibration\CaliBetweenGroupOnePass.h">
+      <Filter>Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="Pub\ParserPub.h">
+      <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UsbPortLib\Basic\crandom.h">
+      <Filter>basic</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="JobPrint.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Calibration">
+      <UniqueIdentifier>{1ce9d3d5-691f-4300-a277-53e260950a36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public">
+      <UniqueIdentifier>{39cf7b5a-d7ee-44f4-9521-1f4327528b2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LayoutBulider">
+      <UniqueIdentifier>{89cd992b-3a79-4d4a-8d11-4f3a9b9921d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basic">
+      <UniqueIdentifier>{ccb52e8d-ec5e-44b2-b72f-3d2893fd851a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

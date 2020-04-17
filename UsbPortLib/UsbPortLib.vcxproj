@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="GZ_PAPER|Win32">
+      <Configuration>GZ_PAPER</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="GZ_PAPER|x64">
+      <Configuration>GZ_PAPER</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="x64_debug|Win32">
+      <Configuration>x64_debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="x64_debug|x64">
+      <Configuration>x64_debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="x64_release|Win32">
+      <Configuration>x64_release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="x64_release|x64">
+      <Configuration>x64_release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D8FB8372-46A3-445B-B229-4370255F422C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectName>UsbPort</ProjectName>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='x64_debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='x64_release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='x64_debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='x64_release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='x64_debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='x64_release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='x64_debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='x64_release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='x64_debug|Win32'">Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='x64_release|Win32'">Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='x64_debug|Win32'">Debug\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='x64_release|Win32'">Debug\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|Win32'">Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|Win32'">Release\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='x64_debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='x64_release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='x64_debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='x64_release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='x64_debug|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='x64_release|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='x64_debug|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='x64_release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='x64_debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='x64_release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='x64_debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='x64_release|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|x64'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\JobProcessor;..\JobProcessor\Port;..\JobProcessor\Interface;..\JobProcessor\Pub;.\PCL;.\Band;..\JobProcessor\Manager;.\unused;.\OLDCODE;..\PublicLib;..\UsbPortLib\Band\Calibration;%(AdditionalIncludeDirectories);.\basic</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;CLOSE_GLOBAL;noLIYUUSB;noPROJ_DEBUG_NEW;PERFORMTEST;DLL_EXPORTS;YAN1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Lib>
+      <OutputFile>..\JobProcessor\UsbPort.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='x64_debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\JobProcessor;..\JobProcessor\Port;..\JobProcessor\Interface;..\JobProcessor\Pub;.\PCL;.\Band;..\JobProcessor\Manager;.\unused;.\OLDCODE;%(AdditionalIncludeDirectories);.\basic</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;CLOSE_GLOBAL;noLIYUUSB;noPROJ_DEBUG_NEW;PERFORMTEST;DLL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+    </ClCompile>
+    <Lib>
+      <OutputFile>..\JobProcessor\UsbPort.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='x64_release|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\JobProcessor;..\JobProcessor\Port;..\JobProcessor\Interface;..\JobProcessor\Pub;.\PCL;.\Band;..\JobProcessor\Manager;.\unused;.\OLDCODE;%(AdditionalIncludeDirectories);.\basic</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;CLOSE_GLOBAL;noLIYUUSB;noPROJ_DEBUG_NEW;PERFORMTEST;DLL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+    </ClCompile>
+    <Lib>
+      <OutputFile>..\JobProcessor\UsbPort.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\JobProcessor;..\JobProcessor\Port;..\JobProcessor\Interface;..\JobProcessor\Pub;.\PCL;.\Band;..\JobProcessor\Manager;.\unused;.\OLDCODE;..\UsbPortLib\Band\Calibration;..\PublicLib;%(AdditionalIncludeDirectories);.\basic</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;__X64;_DEBUG;_LIB;CLOSE_GLOBAL;noLIYUUSB;noPROJ_DEBUG_NEW;noPERFORMTEST;DLL_EXPORTS;Color16;YAN2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>..\JobProcessor\UsbPort.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='x64_debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\JobProcessor;..\JobProcessor\Port;..\JobProcessor\Interface;..\JobProcessor\Pub;.\PCL;.\Band;..\JobProcessor\Manager;.\unused;.\OLDCODE;..\UsbPortLib\Band\Calibration;..\PublicLib;%(AdditionalIncludeDirectories);.\basic</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;__X64;_DEBUG;_LIB;CLOSE_GLOBAL;noLIYUUSB;noPROJ_DEBUG_NEW;PERFORMTEST;DLL_EXPORTS;YAN1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Lib>
+      <OutputFile>..\JobProcessor\UsbPort.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='x64_release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>..\JobProcessor;..\JobProcessor\Port;..\JobProcessor\Interface;..\JobProcessor\Pub;.\PCL;.\Band;..\JobProcessor\Manager;.\unused;.\OLDCODE;..\UsbPortLib\Band\Calibration;..\PublicLib;%(AdditionalIncludeDirectories);.\basic</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;__X64;NDEBUG;_LIB;CLOSE_GLOBAL;noLIYUUSB;noPROJ_DEBUG_NEW;PERFORMTEST;DLL_EXPORTS;YAN1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Lib>
+      <OutputFile>..\JobProcessor\UsbPort.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\JobProcessor;..\JobProcessor\Port;..\JobProcessor\Interface;..\JobProcessor\Pub;.\PCL;.\Band;..\JobProcessor\Manager;.\unused;..\UsbPortLib\Band\Calibration;..\PublicLib;%(AdditionalIncludeDirectories);.\basic</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;CLOSE_GLOBAL;noLIYUUSB;noPROJ_DEBUG_NEW;DLL_EXPORTS;PERFORMTEST;YAN1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Lib>
+      <OutputFile>..\JobProcessor\UsbPort.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\JobProcessor;..\JobProcessor\Port;..\JobProcessor\Interface;..\JobProcessor\Pub;.\PCL;.\Band;..\JobProcessor\Manager;.\unused;.\OLDCODE;..\UsbPortLib\Band\Calibration;..\PublicLib;%(AdditionalIncludeDirectories);.\basic</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;__X64;NDEBUG;_LIB;CLOSE_GLOBAL;noLIYUUSB;noPROJ_DEBUG_NEW;DLL_EXPORTS;noPERFORMTEST;Color16;YAN2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>..\JobProcessor\UsbPort.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\JobProcessor;..\JobProcessor\Port;..\JobProcessor\Interface;..\JobProcessor\Pub;.\PCL;.\Band;..\JobProcessor\Manager;.\unused;%(AdditionalIncludeDirectories);.\basic</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;CLOSE_GLOBAL;noLIYUUSB;noPROJ_DEBUG_NEW;DLL_EXPORTS;noPERFORMTEST;GZ_PAPERBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>..\JobProcessor\UsbPort.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GZ_PAPER|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\JobProcessor;..\JobProcessor\Port;..\JobProcessor\Interface;..\JobProcessor\Pub;.\PCL;.\Band;..\JobProcessor\Manager;.\unused;%(AdditionalIncludeDirectories);.\basic</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;CLOSE_GLOBAL;noLIYUUSB;noPROJ_DEBUG_NEW;DLL_EXPORTS;noPERFORMTEST;GZ_PAPERBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>..\JobProcessor\UsbPort.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Band\BandFeather.cpp" />
+    <ClCompile Include="Band\CalHeadCoord.cpp" />
+    <ClCompile Include="Band\ColorStrip.cpp" />
+    <ClCompile Include="Band\Compensation2.cpp" />
+    <ClCompile Include="Band\ConstructImage.cpp" />
+    <ClCompile Include="Band\ErrorHalftone.cpp" />
+    <ClCompile Include="Band\FeatherShade.cpp" />
+    <ClCompile Include="Band\FeatherTrad.cpp" />
+    <ClCompile Include="Band\lookup.cpp" />
+    <ClCompile Include="Basic\bmp.cpp" />
+    <ClCompile Include="Basic\bmpdata.cpp" />
+    <ClCompile Include="Basic\byhxprtfile.cpp" />
+    <ClCompile Include="Basic\ccommon.cpp" />
+    <ClCompile Include="Basic\imagealg.cpp" />
+    <ClCompile Include="Basic\imagefile.cpp" />
+    <ClCompile Include="Basic\prtconvert.cpp" />
+    <ClCompile Include="Basic\prtdata.cpp" />
+    <ClCompile Include="Basic\prtobj.cpp" />
+    <ClCompile Include="PCL\bi_rle.cpp" />
+    <ClCompile Include="PCL\cmpprtfile.cpp" />
+    <ClCompile Include="PCL\CollageBuffer.cpp" />
+    <ClCompile Include="PCL\DoublePrintInfo.cpp" />
+    <ClCompile Include="PCL\noteinfopro.cpp" />
+    <ClCompile Include="PCL\ParserCache.cpp" />
+    <ClCompile Include="PCL\prtfile.cpp" />
+    <ClCompile Include="unused\BandDataConvert.cpp" />
+    <ClCompile Include="unused\BandDataPrepare.cpp" />
+    <ClCompile Include="unused\BandReadWrite.cpp" />
+    <ClCompile Include="unused\DataPub.cpp" />
+    <ClCompile Include="unused\efficient bit manipulation.cpp" />
+    <ClCompile Include="unused\MemoryLeak.cpp" />
+    <ClCompile Include="unused\PassFilter.cpp" />
+    <ClCompile Include="unused\rotation.cpp" />
+    <ClCompile Include="unused\SystemAPI.cpp" />
+    <ClCompile Include="unused\TcpPort.cpp" />
+    <ClCompile Include="unused\UsbPort.cpp" />
+    <ClCompile Include="Band\FilePreview.cpp" />
+    <ClCompile Include="Band\GDIBand.cpp" />
+    <ClCompile Include="Band\ParserBandProcess.cpp" />
+    <ClCompile Include="Band\ParserPass.cpp" />
+    <ClCompile Include="Band\ParserPreview.cpp" />
+    <ClCompile Include="Band\PrintCommand.cpp" />
+    <ClCompile Include="Band\Shape.cpp" />
+    <ClCompile Include="Band\SourceBand.cpp" />
+    <ClCompile Include="Band\ThresHold.cpp" />
+    <ClCompile Include="Pcl\LiYuParser.cpp" />
+    <ClCompile Include="Pcl\ParserBuffer.cpp" />
+    <ClCompile Include="Pcl\PCLJobInfo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Band\BandFeather.hpp" />
+    <ClInclude Include="band\compensation.h" />
+    <ClInclude Include="Band\FeatherShade.hpp" />
+    <ClInclude Include="Band\FeatherTrad.hpp" />
+    <ClInclude Include="Basic\bmp.h" />
+    <ClInclude Include="Basic\bmpdata.h" />
+    <ClInclude Include="Basic\byhxprtfile.h" />
+    <ClInclude Include="Basic\ccommon.h" />
+    <ClInclude Include="Basic\imagealg.h" />
+    <ClInclude Include="Basic\imagefile.h" />
+    <ClInclude Include="Basic\prtcommon.h" />
+    <ClInclude Include="Basic\prtconvert.h" />
+    <ClInclude Include="Basic\prtdata.h" />
+    <ClInclude Include="Basic\prtobj.h" />
+    <ClInclude Include="PCL\bi_rle.h" />
+    <ClInclude Include="PCL\cmpprtfile.h" />
+    <ClInclude Include="PCL\DoublePrintInfo.h" />
+    <ClInclude Include="PCL\noteinfopro.h" />
+    <ClInclude Include="PCL\prtfile.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
