@@ -29,7 +29,7 @@ FeatherTrade::FeatherTrade(
 
 	SPrinterSetting set;
 	GlobalPrinterHandle->GetSettingManager()->get_SPrinterSettingCopy(&set);
-	double wavelength = 5; // set.sBaseSetting.fFeatherWavelength;
+	double wavelength = set.sBaseSetting.fFeatherWavelength;
 	int xres = m_pParserJob->get_SJobInfo()->sPrtInfo.sFreSetting.nResolutionX;
 	int yres = set.sFrequencySetting.nResolutionY;
 
@@ -60,13 +60,22 @@ FeatherTrade::FeatherTrade(
 
 	m_pMaskAddr = new unsigned char** [1];
 	m_pMaskAddr[0] = new unsigned char* [m_nPassNumber];
+
 	int maskByteLen = ((m_nWidth * m_nColorDeep + 31) & ~31) >> 3;
 	m_nMaskSize = maskByteLen * m_nHeight;//m_nWidth *m_nHeight* m_nColorDeep / 8;
-	for (int i = 0; i < m_nPassNumber; i++)
-	{
-		m_pMaskAddr[0][i] = new unsigned char[m_nMaskSize];
-		memset(m_pMaskAddr[0][i], 0, m_nMaskSize);
+	for (int l = 0; l < m_nLayerNum; l++) {
+		m_pMaskAddr[l] = new unsigned char* [m_nPassNumber];
+		for (int i = 0; i < m_nPassNumber; i++) {
+			m_pMaskAddr[l][i] = new unsigned char[m_nMaskSize];
+			memset(m_pMaskAddr[l][i], 0, m_nMaskSize);
+		}
+		
 	}
+// 	for (int i = 0; i < m_nPassNumber; i++)
+// 	{
+// 		m_pMaskAddr[0][i] = new unsigned char[m_nMaskSize];
+// 		memset(m_pMaskAddr[0][i], 0, m_nMaskSize);
+// 	}
 
 	const char* filename = "./shape.dll";
 
@@ -78,11 +87,10 @@ FeatherTrade::FeatherTrade(
 	{
 		fclose(fp);
 		int bufLineSize = AlignPixel32Bit(m_nWidth, 1);
-		int bufsize = bufLineSize * m_nHeight;
+		int bufsize = bufLineSize * m_nHeight * 2;
 		unsigned char* bmpBuf = new unsigned char[bufsize];
 		memset(bmpBuf, 0, bufsize);
 		CreateShape(m_nWidth, m_nHeight - shadeheight, shadeheight, bmpBuf, bufLineSize);
-
 		unsigned char* dst1 = m_pMaskAddr[0][0];
 		unsigned char* src1 = bmpBuf;
 		int bytePerLine = maskByteLen;//m_nWidth* m_nColorDeep / 8;
@@ -105,7 +113,7 @@ FeatherTrade::FeatherTrade(
 			dst1 += bytePerLine;
 			src1 += srcbytePerLine;
 		}
-		delete[] bmpBuf;
+		delete bmpBuf;
 	}
 
 	for (int c = 1; c < m_nPassNumber; c++) {
@@ -172,8 +180,8 @@ void FeatherTrade::DoFeatherLine(int width, byte *srcBuf, byte *  dstBuf, int pa
 
 	//assert(masklinebyte % BYTE_PACK_LEN == 0);
 
-	int len = m_nBytePerLine / BYTE_PACK_LEN;
-	int size = (width* m_nColorDeep + BIT_PACK_LEN - 1) / BIT_PACK_LEN;
+	int len = m_nBytePerLine / 4;
+	int size = (width* m_nColorDeep + 32 - 1) / 32;
 
 #if 0
 	for (int j = 0; j < size; j += len){
@@ -194,8 +202,6 @@ void FeatherTrade::DoFeatherLine(int width, byte *srcBuf, byte *  dstBuf, int pa
 void FeatherTrade::DoFeatherBand(byte **srcBuf, int curY, int totalhigh, int color, int tail,int phaseX,int layindex)
 {
 	if (m_nFeatherHeight == 0)
-		return;
-	if (m_nFeaTotalHeight == 0)
 		return;
 	LayerSetting layersetting = m_pParserJob->get_layerSetting(layindex);
 	int feather_height = m_nFeaTotalHeight / m_nFeatherTimes;
@@ -321,8 +327,8 @@ void FeatherTrade::DoFeatherBand(byte **srcBuf, int curY, int totalhigh, int col
 		{
 			for (int k = 0; k < feather_height; k++)
 			{
-				DoFeatherLine(m_nDataWidth, src, dst, 0, k,/* color % printercolornum, sublayerindex,*/ phaseX);
-
+				//DoFeatherLine(m_nDataWidth, src, dst, 0, k,/* color % printercolornum, sublayerindex,*/ phaseX);
+				DoFeatherLine(m_nDataWidth, src, dst, 1, k, phaseX);
 				src -= m_nDataLen;
 				dst -= m_nDataLen;
 				if (src < srcBuf[buf_Index])
@@ -343,8 +349,8 @@ void FeatherTrade::DoFeatherBand(byte **srcBuf, int curY, int totalhigh, int col
 
 		for (int k = 0; k < feather_height; k++)
 		{
-			DoFeatherLine(m_nDataWidth, src, dst, 1, k, /*color % printercolornum, sublayerindex,*/ phaseX);
-
+			//DoFeatherLine(m_nDataWidth, src, dst, 1, k, /*color % printercolornum, sublayerindex,*/ phaseX);
+			DoFeatherLine(m_nDataWidth, src, dst, 0, k, phaseX);
 			src -= m_nDataLen;
 			dst -= m_nDataLen;
 			if (src < srcBuf[buf_Index])

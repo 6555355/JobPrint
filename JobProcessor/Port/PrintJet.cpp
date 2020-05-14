@@ -412,8 +412,8 @@ int CPrintJet::BeginJob(CPrintBand *pPrintBand)
 	m_nPassAdvance *= band_split;
 	m_nPassStep    *= band_split;
 
-
-	if (m_pParserJob->get_SPrinterProperty()->get_SupportUV()){
+	bool canmove = m_pParserJob->get_CanUVYMove();
+	if (m_pParserJob->get_SPrinterProperty()->get_SupportUV() && (canmove || !IsDocanRes720())/*!IsDocanRes720()*/){
 #ifdef YAN1
 		m_nNull_Band = UV_NULL_BAND;
 #elif YAN2
@@ -1383,6 +1383,10 @@ bool CPrintJet::SendJobInfo(CParserJob *pPageImageAttrib)//(int iWidth)
 		{
 			ji->VSDModel = 4;
 		}
+	}
+	if (pPageImageAttrib->get_SPrinterProperty()->get_PrinterHead() == PrinterHeadEnum_Konica_KM1024A_6_26pl)
+	{
+		ji->m_nJobSpeed = ji->VSDModel;
 	}
 #endif
 	ji->baseDPI				= m_nBaseDpi;//0; for 720   1: for 540 2: for 1440
@@ -2616,6 +2620,7 @@ void CPrintJet::CalculateMoveValue(CPrintBand *pCurBand,CPrintBand *pNextBand)
 
 	int add_step		= 0;
 	int baseindex =m_pParserJob->get_BaseLayerIndex();
+	int canmove = m_pParserJob->get_CanUVYMove();
 	//LayerSetting layer =m_pParserJob->get_layerSetting(baseindex);
 	if(pNextBand->GetBandFlag() == BandFlag_EndJob)//skyship last band add y null step 
 	{
@@ -2742,16 +2747,24 @@ void CPrintJet::CalculateMoveValue(CPrintBand *pCurBand,CPrintBand *pNextBand)
 
 #endif
 		}
-		if ( (GlobalPrinterHandle->GetOpenPrinterHandle()->m_bIsCali) 
+		if ( (GlobalPrinterHandle->GetOpenPrinterHandle()->m_bIsCali || IsDocanRes720())
 			&& (pNextBand->GetBandFlag() == BandFlag_EndJob)
 			&& (addDistance != 0)
 			)
 		{			
 			m_nNull_Band = (addDistance + stepMove - 1) / stepMove;
 			LogfileStr("\n calibratem_nNull_Band:%d ", m_nNull_Band);
+
 			CPrintBand * pNullBand1 = pCurBand->Clone();
 			memset(pNullBand1->GetBandDataAddr(), 0, pNullBand1->GetBandDataSize()); //创建单独的空band 
-			int ynext = ycur_loop+ stepMove;
+			int ynext = ycur_loop+stepMove;
+			int stepUVMove = stepMove;
+			if (!canmove && IsDocanRes720())
+			{
+				stepUVMove = 1;
+				ynext = min(yPrev+stepMove,yCur);
+			}
+
 			pNullBand1->SetBandPos(xPrev, ynext);
 			pCurBand->SetNextBandFlag(BandFlag_Band);
 			pCurBand->SetNextBandData(pNullBand1->GetBandData());
@@ -2760,7 +2773,7 @@ void CPrintJet::CalculateMoveValue(CPrintBand *pCurBand,CPrintBand *pNextBand)
 			while (--m_nNull_Band)
 			{ 
 				CPrintBand * next = pNullBand1->Clone();
-				ynext += stepMove;
+				ynext += stepUVMove;
 				memset(next->GetBandDataAddr(), 0, next->GetBandDataSize()); //创建单独的空band 
 				 next->SetBandPos(xPrev, ynext );  //创建下一个空的band并放到正确的位置上
 

@@ -402,6 +402,7 @@ public:
 		virtual byte	get_IsUseScraper() = 0;
 		virtual SPrinterModeSetting* get_PrinterModeSetting()=0;
 		virtual byte	get_OverPrint_New(int layerindex, int sublayerindex) = 0;
+		virtual bool	get_CanUVYMove() = 0;
 };
 
 #endif //#ifndef __PRINTERPARAM_AND_JOBINFO_H__

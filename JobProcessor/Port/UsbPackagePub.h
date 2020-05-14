@@ -24,7 +24,11 @@ struct CoreConst
 	#define MAX_CALI_PASS_NUM			12*9
 
 #ifdef YAN1
+#ifdef SKYSHIP
+	#define MAX_HEAD_NUM				128
+#else
 	#define MAX_HEAD_NUM				64
+#endif	
 	#define MAX_VOL_TEMP_NUM			256
 	#define MAX_COLOR_NUM				16
 	#define MAX_PRT_COLOR_NUM			24

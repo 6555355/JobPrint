@@ -413,6 +413,7 @@ int GetPrinterSetting_API(SPrinterSettingAPI	* sSetting)
 	memcpy(sSetting, &sPrinterSetting, sizeof(SPrinterSetting));
 
 	LogfileStr("[GetPrinterSetting_API] nResolutionY = %d\n", sPrinterSetting.sFrequencySetting.nResolutionY);
+	LogfileStr("[GetPrinterSetting_API] nResolutionX = %d\n", sPrinterSetting.sFrequencySetting.nResolutionX);
 	if(sPrinterSetting.sFrequencySetting.nResolutionY == 0)
 		MessageBox(0,"[GetPrinterSetting_API] nResolutionY","",MB_OK);
 	return true;
@@ -431,6 +432,7 @@ int SetPrinterSetting_API(SPrinterSettingAPI	* sSetting)
 	LogfileStr("[SetPrinterSetting_API] nResolutionY = %d,bIgnorePrintWhiteX= %d,bIgnorePrintWhiteY=%d\n", sPrinterSetting.sFrequencySetting.nResolutionY,
 		sPrinterSetting.sBaseSetting.bIgnorePrintWhiteX,
 		sPrinterSetting.sBaseSetting.bIgnorePrintWhiteY);
+	LogfileStr("[SetPrinterSetting_API] nResolutionX = %d\n", sPrinterSetting.sFrequencySetting.nResolutionX);
 	LogfileStr("[SetPrinterSetting_API] layerNum = %d,baseLayerIndex = %d,nEnablelayer=%d \n", 
 		sPrinterSetting.sPrintModeSetting.layerNum,
 		sPrinterSetting.sPrintModeSetting.baseLayerIndex,
@@ -447,6 +449,14 @@ int SetPrinterSetting_API(SPrinterSettingAPI	* sSetting)
 		sPrinterSetting.sPrintModeSetting.layerSetting[0].EnableColumn
 		);
 
+		for (size_t i = 0; i < MAX_RESLIST_NUM; i++)
+		{
+			for (size_t j = 0; j < MAX_SPEED_NUM; j++)
+			{
+				LogfileStr("传入的双向校准值是%d, resx:%d, speed:%d\n", sPrinterSetting.sCalibrationSetting.sCalibrationHorizonArray[i][j].nBidirRevise, i, j);
+			}
+
+		}
 	if(sPrinterSetting.sFrequencySetting.nResolutionY == 0)
 		MessageBox(0,"[SetPrinterSetting_API] nResolutionY","",MB_OK);
 

@@ -924,7 +924,7 @@
 		unsigned char bDoublePrint;	// 双面喷打印是否控制下发band数功能;
 		unsigned char nDoublePrintBandNum;	// 双面喷功能调整图像时下发Band与当前打印band的等待band数，0 不生效，>0 等待band数;
 		byte bIsNewCalibration;  //组校准，1PASS校准，1表示新校准
-		byte rev2;
+		byte rev2; // y是否步进。东川uv需求
 		byte bGreyRip;
 		float FeatherNozzle;
 		byte  ColorGreyMask[MAX_COLOR_NUM];

@@ -112,7 +112,7 @@ int  MeasurePaper(int type)
 		int nfMesureHeight = (int)(Ips->fMesureHeight * fPulsePerInchZ);
 		int nfMesureXCoor = (int)(Ips->fMesureXCoor * fPulsePerInchX);
 		int nfMesureYCoor = (int)(Ips->fMesureYCoor * fPulsePerInchY);
-		LogfileStr("Ips->fMesureXCoor %f, fPulsePerInchX:%d\n", Ips->fMesureXCoor, fPulsePerInchX);
+		LogfileStr("Ips->fMesureXCoor %f, fPulsePerInchX:%f, fPulsePerInchZ=%f\n", Ips->fMesureXCoor, fPulsePerInchX, fPulsePerInchZ);
 #ifdef YAN1
 		if(type==2) // 如果是手动测高,dsp返回的数据是错误的,为了避免dsp修改处理兼容性问题麻烦.软件上直接把手动测高转为自动测高;只是把测高位置重置为当前位置
 		{
@@ -2264,14 +2264,14 @@ int GetTempCurLayout(int mask, int headnum, unsigned char* temp, float* cTempera
 		for(int i=0; i<maxHeads*sizeof(short); i++)
 		{
 			cTemperatureCur[i] = *((short *)(temp+offset+i*2)) * 1.0 / cofficient_temp;
-			//LogfileStr("16bit温度\n");
-			//LogfileStr("cTemperatureCur i是%d, val是%.2f\n", i, cTemperatureCur[i]);
+			LogfileStr("16bit温度\n");
+			LogfileStr("cTemperatureCur i是%d, val是%.2f\n", i, cTemperatureCur[i]);
 		}
 	}else{
 		for (int i=0; i<maxHeads;i++)
 		{
 			cTemperatureCur[i] = (float)temp[i+offset]/cofficient_temp;
-			//LogfileStr("cTemperatureCur i是%d, val是%.2f\n", i, cTemperatureCur[i]);
+			LogfileStr("cTemperatureCur i是%d, val是%.2f\n", i, cTemperatureCur[i]);
 		}
 	}
 		
@@ -3747,6 +3747,7 @@ int MoveZ(int type,float fZSpace,float fPaperThick)
 	fvalue = (fZSpace + fPaperThick);
 	fvalue *= ratio;
 	moveLen = (int)fvalue;
+	LogfileStr("MoveZ fZSpace=%f, paperthick=%f, ratio=%f, movlen=%X\n", fZSpace, fPaperThick, ratio, moveLen);
 
 	int XPos,YPos,ZPos;
 	XPos=YPos=ZPos=0;
@@ -3764,16 +3765,28 @@ int MoveZ(int type,float fZSpace,float fPaperThick)
 
 	int XMax,YMax,ZMax;
 	XMax =YMax=ZMax =0;
-	if(QueryPrintMaxLen(XMax,YMax,ZMax))
+	SPrinterProperty sProperty;
+	GlobalPrinterHandle->GetSettingManager()->GetPrinterPropertyCopy(&sProperty);
+	if (sProperty.bSupportZendPointSensor)
 	{
-		sprintf(sss,
-			"[GetPrintMaxLen]: XMax = %X YMax= %X, ZMax=%X.\n",
-			XMax,YMax,ZMax);
-		LogfileStr(sss);
+		if (QueryPrintMaxLen(XMax, YMax, ZMax))
+		{
+			sprintf(sss,
+				"[GetPrintMaxLen]: XMax = %X YMax= %X, ZMax=%X.\n",
+				XMax, YMax, ZMax);
+			LogfileStr(sss);
+		}
+		else
+		{
+			return false;
+		}
 	}
 	else
 	{
-		return false;
+		SPrinterSetting setting;
+		GlobalPrinterHandle->GetSettingManager()->get_SPrinterSettingCopy(&setting);
+		ZMax = (int)(setting.sExtensionSetting.zMaxLength * ratio);
+		LogfileStr("zmaxlen=%f, zmax=%d\n", setting.sExtensionSetting.zMaxLength, ZMax);
 	}
 	MoveDirectionEnum dir;
 	int nDistance ;
@@ -3800,8 +3813,8 @@ int MoveZ(int type,float fZSpace,float fPaperThick)
 	if( GlobalPrinterHandle->GetUsbHandle()->MoveCmd(ucDirection,nDistance,speed))
 	{
 		sprintf(sss,
-			"[MoveZ]: nDistance = %X .\n",
-			nDistance);
+			"[MoveZ]: nDistance = %X, dir= %d.\n",
+			nDistance, dir);
 		LogfileStr(sss);
 
 #ifndef PRINTER_DEVICE

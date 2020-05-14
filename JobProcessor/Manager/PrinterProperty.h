@@ -509,6 +509,7 @@ public:
 		virtual SPrinterModeSetting* get_PrinterModeSetting();
 
 		virtual byte	get_OverPrint_New(int layerindex, int sublayerindex);
+		virtual bool	get_CanUVYMove();
 
 private:
 	SettingExtType	SettingExt;

@@ -242,6 +242,7 @@ int  MeasurePaperEndEvent(int iMeasuringType)
 		SZSetting* zs = Ips->get_ZSetting();
 		zs->fSensorPosZ = (nPaperLeftPos[0]+flatSpace) /fPulsePerInchZ; //fw返回此数据时因无法区分是测高还是测宽.固定按测宽减去了平台距离的脉冲数.这里为了兼容原有功能,软件加上平台距离
 		zs->fMesureMaxLen = (nPaperRightPos[0]+flatSpace) /fPulsePerInchZ;
+		LogfileStr("flatspace:%d,posz=%d, maxlen=%d, perinchz=%f\n", flatSpace, (nPaperLeftPos[0] + flatSpace), (nPaperRightPos[0] + flatSpace), fPulsePerInchZ);
 	}
 	else
 	{

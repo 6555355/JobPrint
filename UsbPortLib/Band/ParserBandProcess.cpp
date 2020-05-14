@@ -351,6 +351,7 @@ CConstructImage* CParserBandProcess::CreateFillImageCache(int layerindex, int co
 			pImageBuffer->ConstructLineBuffer(m_nOutputColorDeep,imagewidth);
 
 			unsigned int mask0 = m_pParserJob->get_SPrinterSettingPointer()->sBaseSetting.MultiLayer[spotindex].Bit.Gray;
+			
 			unsigned int mask1 = 0;
 			for (int j = 0; j < 8; j++){
 				if (mask0 & (1 << j))
@@ -359,6 +360,7 @@ CConstructImage* CParserBandProcess::CreateFillImageCache(int layerindex, int co
 
 			int SetType = m_pParserJob->get_SPrinterSettingPointer()->sBaseSetting.MultiLayer[spotindex].Bit.SetType;
 			int Inverse = m_pParserJob->get_SPrinterSettingPointer()->sBaseSetting.MultiLayer[spotindex].Bit.Inverse;
+			LogfileStr("EnumWhiteInkImage_Image mask0=%d, m_nWhiteInkImageMask[spotindex]=%d, settype=%d, inverse=%d\n", mask0, m_nWhiteInkImageMask[spotindex], SetType, Inverse);
 			m_nWhiteInkImageInitData[spotindex] = ((Inverse ^ SetType) & 0x01) ? 0xFF : 0x00;
 			pImageBuffer->ResetLineBuffer(m_nWhiteInkImageInitData[spotindex]);
 
@@ -428,7 +430,7 @@ BandFeather* CParserBandProcess::CreatFeather(int layerindex, int colorindex)
 	int feathertimes = get_FeatherTimes();
 	int xcopy = 1, ycopy = 1;
 	pass = (pass%10==0) ? 10: (pass%10);
-	feathertype = FeatherType_Wave; // for test gjp
+	LogfileStr("CreatFeather, feathertype=%d\n", feathertype);
 
 #ifdef YAN1
 	xcopy = (m_pParserJob->get_SPrinterSettingPointer()->sExtensionSetting.xFeatherParticle[pass-1]==0)? 
@@ -1031,7 +1033,9 @@ bool CParserBandProcess::EndJob()
 			endY--;
 	}
 #ifndef  SKYSHIP_DOUBLE_PRINT
-	endY+= (int)(m_pParserJob->get_Global_IPrinterSetting()->get_fYAddDistance() *m_pParserJob->GetPrtHeaderResY()/m_nResY[baseindex]);
+	int canmove = m_pParserJob->get_CanUVYMove();
+	if (canmove || !IsDocanRes720())
+		endY+= (int)(m_pParserJob->get_Global_IPrinterSetting()->get_fYAddDistance() *m_pParserJob->GetPrtHeaderResY()/m_nResY[baseindex]);
 #endif
 	//endY += (m_nBandHeightDst[baseindex]/band_split) * (m_pParserJob->GetSourceNumber(baseindex) - 1);
     //if(m_pParserJob->get_IsConstantStep())
@@ -1196,22 +1200,20 @@ bool CParserBandProcess::FillImageLine(unsigned char * lineBuf, int bufSize,int 
 			}
 			break;
 		case EnumWhiteInkImage_Image:
+			if (m_nWhiteInkImageMask[spotindex] & (0x01 << lineindex)) {
+				if (lineBuf != nullptr)
+				{
+					DoImageLine(m_hFillImageCache[0][all_minindex[spotindex]]->GetLineBuffer(), bufSize, lineBuf, m_nMaxSrcSize,
+						m_pParserJob->get_SPrinterSettingPointer()->sBaseSetting.MultiLayer[spotindex].Bit.SetType,
+						m_pParserJob->get_SPrinterSettingPointer()->sBaseSetting.MultiLayer[spotindex].Bit.Inverse, m_nImageSrcEmpty);
+				}
+			}
 			if (lineindex == m_nColorEnd){
 				for (int whiteindex = all_minindex[spotindex]; whiteindex < all_maxindex[spotindex]; whiteindex++)
 					ClipWithPageAndFillSourceLine(whiteindex,height,m_hFillImageCache[0][all_minindex[spotindex]]->GetLineBuffer(),m_nMaxSrcSize,0);
 
 				m_hFillImageCache[0][all_minindex[spotindex]]->ResetLineBuffer(m_nWhiteInkImageInitData[spotindex]);
-			}
-			else{
-				if (m_nWhiteInkImageMask[spotindex]&(0x01<<lineindex)){
-					if (lineBuf != nullptr)
-					{
-						DoImageLine(m_hFillImageCache[0][all_minindex[spotindex]]->GetLineBuffer(), bufSize, lineBuf, m_nMaxSrcSize,
-							m_pParserJob->get_SPrinterSettingPointer()->sBaseSetting.MultiLayer[spotindex].Bit.SetType,
-							m_pParserJob->get_SPrinterSettingPointer()->sBaseSetting.MultiLayer[spotindex].Bit.Inverse,m_nImageSrcEmpty);
-					}
-				}
-			}
+			}			
 			break;
 		case EnumWhiteInkImage_Rip:
  			if ((color%m_nPrinterColorNum) >=all_minindex[spotindex] && (color%m_nPrinterColorNum) <all_maxindex[spotindex])

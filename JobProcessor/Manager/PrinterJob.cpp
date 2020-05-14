@@ -1955,7 +1955,7 @@ int CParserJob::PreCheckJobInMedia(int &jobwidth, int &jobheight, int mediaytype
 	{
 		if (XOriginPoint + jobwidth >  paper_width)
 		{
-			jobwidth = paper_width - XOriginPoint;
+			jobwidth = abs(paper_width - XOriginPoint);
 			ret|=0x1;
 		}
 		if (mediaytype != 0)//平板
@@ -2485,14 +2485,14 @@ void CParserJob::InitYOffset(void)
 		if(IsCaliFlg())
 			layersetting.columnNum =GetMaxColumnNum();
 		LayerSetting baselayersetting = get_layerSetting(get_BaseLayerIndex());
-		int resy = baselayersetting.curYinterleaveNum;//*get_SJobInfo()->sPrtInfo.sImageInfo.nImageResolutionY/layersetting.curYinterleaveNum;
+		int resy = baselayersetting.curYinterleaveNum*get_SJobInfo()->sPrtInfo.sImageInfo.nImageResolutionY/layersetting.curYinterleaveNum;
 		for(int col =0;col<layersetting.columnNum;col++)
 		{
 			for (int c=0;c< colornum;c++)
 			{
 				int colorid =GlobalLayoutHandle->GetColorID(c);
 				float coloroffset =GlobalLayoutHandle->GetColorYoffsetInCurRow(m_nLayerYStartIndex[i],colorid,col);
-				offset[c+col*colornum] = (float)((int)(coloroffset*resy));		// 如0.25孔需4pass倍数才能应用偏移量, 其余算作平齐, 无法处理
+				offset[c+col*colornum] = (float)((int)(coloroffset*resy))/resy*interleavediv;		// 如0.25孔需4pass倍数才能应用偏移量, 其余算作平齐, 无法处理
 			}
 			if (!bFlipYOffset)
 			{

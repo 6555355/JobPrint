@@ -760,7 +760,6 @@ void CPrinterProperty::get_ResXList( int* pResolutionX, int& nLen )
 		nLen = 4;
 		for (int i = 0; i < nLen; i++){
 			pResolutionX[i] = UserParam.PriterRes[i];
-			//LogfileStr("get_ResXList %dÊÇ%d\n", i, pResolutionX[i]);
 		}
 		return;
 	}
@@ -2109,7 +2108,6 @@ byte  CPrinterSetting::get_WhiteGray(int spotIndex)
 	if (spotIndex < 2)
 		ret = (m_pPrinterSetting->sBaseSetting.MultiLayer[spotIndex].nSpotColorMask >> 8) & 0xff;
 	LEAVE_GLOBAL_PRINTER_PARAM();
-	LogfileStr("get_WhiteGray:%d\n",ret);
 	return ret;
 }
 byte  CPrinterSetting::get_ColorGray(int Color)
@@ -2292,7 +2290,9 @@ byte  CPrinterSetting::get_IsOverPrint()
 {
 	ushort ret = 0; 
 	ENTER_GLOBAL_PRINTER_PARAM();
+#ifdef YAN1
 	ret = (m_pPrinterSetting->sExtensionSetting.bOverPrint);
+#endif
 	LEAVE_GLOBAL_PRINTER_PARAM();
 	return ret;
 }
@@ -2315,7 +2315,9 @@ byte  CPrinterSetting::get_OverPrint_New(int index,int subindex)
 {
 	ushort ret = 0; 
 	ENTER_GLOBAL_PRINTER_PARAM();
+#ifdef YAN1
 	ret = (m_pPrinterSetting->sExtensionSetting.nOverPrint_New[index][subindex]);
+#endif
 	LEAVE_GLOBAL_PRINTER_PARAM();
 	return ret;
 }
@@ -2596,7 +2598,6 @@ bool CPrinterProperty::IsLoadPrinterRes()
 #ifdef YAN1
 	ret = m_pPrinterProperty->SettingOnOff.LoadPrinterRes && PropertyIsNewVersion(); 
 #endif
-//	LogfileStr("IsLoadPrinterRes £º%d, settingonoff:%d\n", ret, m_pPrinterProperty->SettingOnOff.LoadPrinterRes);
 	return ret;
 }
 
@@ -2659,6 +2660,17 @@ bool CPrinterProperty::IsSendJobNoWait()
 #elif YAN1
 	ret = m_pPrinterProperty->MachineType0.SendJobNoWait && PropertyIsNewVersion();
 #endif
+	return ret;
+}
+
+bool CPrinterSetting::get_CanUVYMove()
+{
+	byte ret = 0;
+	ENTER_GLOBAL_PRINTER_PARAM();
+	ret = m_pPrinterSetting->sExtensionSetting.rev2;
+	LogfileStr("get_CanUVYMove=%d\n ", ret);
+	ON_PARAM_CHANGED();
+	LEAVE_GLOBAL_PRINTER_PARAM();
 	return ret;
 }
 

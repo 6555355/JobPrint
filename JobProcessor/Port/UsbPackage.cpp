@@ -329,6 +329,7 @@ BOOL CUsbPackage::GetCurrentPos(int &XPos,int &YPos,int &ZPos)
 	XPos = YPos = ZPos = 0;
 	if(FX2EP0GetBuf(UsbPackageCmd_Get_CurrentPos,&base,sizeof(SEp0GetBase)))
 	{
+		LogBinary("获取当前位置", (unsigned char*)&base, sizeof(SEp0GetBase));
 		XPos =*(int *)(&base.m_pResult[0]);
 		YPos =*(int *)(&base.m_pResult[4]);
 		ZPos =*(int *)(&base.m_pResult[8]);

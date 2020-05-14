@@ -70,9 +70,9 @@ static void GetBYHXDefaultPrinterProperty( SPrinterProperty *sPP)
 	sPP->eSpeedMap[1]=2; 
 	sPP->eSpeedMap[2]=4; 
 	sPP->fPulsePerInchZ = 1;
-	sPP->fPulsePerInchAxis4 = 1;
 
 #ifdef YAN1
+	sPP->fPulsePerInchAxis4 = 1;
 	sPP->nHeadNum = sPP->nColorNum*sPP->nHeadNumPerGroupY;
 	sPP->nElectricNum = 16;
 	strcpy(sPP->eColorOrder, "mcKYCMOGmcKYCMOG");

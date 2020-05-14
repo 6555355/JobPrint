@@ -481,6 +481,5 @@ extern "C" DLL_API float GetStepHeight();		// 获取步进高度, 打印一次后可一直获取
 extern "C" DLL_API void SetSliceBandOffset(int offset);
 
 extern "C" DLL_API int AbortMeasure();
-
 #endif
 
